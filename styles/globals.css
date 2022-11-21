@@ -1,26 +1,68 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
-  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  /* h1 {
+    @apply font-bold text-slate-800 text-4xl;
   }
-  body {
-    color: white;
-    background: black;
+  h2 {
+    @apply font-semibold text-slate-800 text-3xl;
   }
+  h3 {
+    @apply font-medium text-slate-800 text-2xl;
+  }
+  h4 {
+    @apply font-normal text-slate-800 text-xl;
+  }
+  h5 {
+    @apply font-normal text-slate-800 text-lg;
+  }
+  span,
+  p {
+    @apply font-normal text-slate-800 text-base;
+  } */
+}
+
+@layer components {
+  .menu-item {
+    @apply mx-4 my-2 text-base text-slate-500 font-medium  flex group-hover:text-sky-500;
+  }
+  .btn {
+    @apply font-semibold py-3 px-6 rounded-lg active:opacity-50 text-white bg-sky-500;
+  }
+  .btn-outlined {
+    @apply font-semibold py-3 px-6 rounded-lg active:opacity-50 text-sky-500 bg-white border-2 border-sky-500;
+  }
+}
+
+.navbar-fixed {
+  @apply fixed z-50 bg-white bg-opacity-90;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.Select__control {
+  @apply py-1 border-2 border-black rounded-lg outline-none focus:border-sky-500 w-full;
+}
+
+.Select__control:hover {
+  border-color: #d3d3d3;
+}
+
+.Select__control--is-focused {
+  border-color: red;
+}
+
+.Select__indicator-separator {
+  display: none;
+}
+
+.Select__menu {
+  color: black;
 }
