@@ -5,9 +5,7 @@ import Card from "../components/Card";
 import CurrencyInput from "../components/CurrencyInput";
 import Menu from "../components/Menu";
 import Navbar from "../components/Navbar";
-import RSelect from "../components/RSelect";
 import Select from "../components/Select";
-import Select2 from "../components/Select2";
 import SelectIcon from "../components/SelectIcon";
 import Text from "../components/Text";
 
@@ -313,7 +311,7 @@ const Home = () => {
       <div className="h-20"></div>
       <hr className="my-6" />
       <div className="px-5 flex gap-3 bg-red-50">
-        <Button type="outlined" />
+        <Button type="outlined" isLoading={true} disabled={true} />
         <Button disabled={true} isLoading={true} onClick={() => handleSebelum(2131321)} />
       </div>
       <hr className="my-6" />
@@ -329,15 +327,33 @@ const Home = () => {
         <Text>Ini adalah text tipe default/p</Text>
       </div>
       <hr className="my-6" />
-      <div className="px-5">
+      <div className="px-5 max-w-xl">
         <CurrencyInput placeholder="Ini merupakan sebuah placeholder" value={sebelum} onValueChange={(res) => handleSebelum(res)} />
         <CurrencyInput label="sesudah" placeholder="Ini merupakan sebuah placeholder" value={sesudah} onValueChange={(res) => handleSesudah(res)} />
         <br />
         <br />
-        <Select value={selected} onChange={setSelected} data={data} optionKey="value" iconKey="flag" onSearch={onSearch} placeholder="Pilih Negara" label="Negara Tujuan" />
+        <Select
+          value={selected}
+          onChange={setSelected}
+          data={data}
+          //  optionKey="country"
+          iconKey="flag"
+          onSearch={onSearch}
+          placeholder="Pilih Negara"
+          label="Negara Tujuan"
+        />
         <br />
         <br />
-        <SelectIcon value={selected} onChange={setSelected} data={data} optionKey="value" iconKey="flag" onSearch={onSearch} placeholder="Pilih Negara" label="Negara Tujuan" />
+        <SelectIcon
+          value={selected}
+          onChange={setSelected}
+          data={data}
+          // optionKey="country"
+          iconKey="flag"
+          onSearch={onSearch}
+          placeholder="Pilih Negara"
+          label="Negara Tujuan"
+        />
       </div>
       <hr className="my-6" />
 

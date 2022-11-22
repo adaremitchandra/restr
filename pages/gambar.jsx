@@ -1,19 +1,23 @@
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import useSWR from "swr";
 
 const Gambar = ({ par }) => {
-  useEffect(() => {
-    // fetch("https://api.adaremit.co.id/api/v1/kursfee")
-    //   .then((res) => res.json())
-    //   .then((res) => setData(res.transaction));
-    console.log("props : ", par);
-    setData(par.transaction);
-  }, []);
+  // useEffect(() => {
+  //   axios.get("https://sandbox-api.adaremit.com/api/v1/kursfee").then((res) => setData(res.data.transaction));
+  // }, []);
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const fetcher = async () => {
+    const response = await axios.get("https://sandbox-api.adaremit.com/api/v1/kursfee");
+    return response.data.transaction;
+  };
+
+  const { data } = useSWR("rate", fetcher);
+  if (!data) return <h2>Loading...</h2>;
 
   const login = () => {
     // const data = {
@@ -50,7 +54,7 @@ const Gambar = ({ par }) => {
       </div>
 
       <div style={{ backgroundColor: "skyblue", margin: "auto" }}>
-        {data.map((item) => (
+        {data?.map((item) => (
           <div key={item.currency_code} style={{ display: "flex", gap: "100px", justifyContent: "space-between" }}>
             <Image src={item.flag} width={30} height={30} />
             <p style={{ backgroundColor: "tomato", textAlign: "center" }}>| {item.country} |</p>
@@ -65,11 +69,11 @@ const Gambar = ({ par }) => {
 
 export default Gambar;
 
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch("https://api.adaremit.co.id/api/v1/kursfee");
-  const par = await res.json();
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await fetch("https://api.adaremit.co.id/api/v1/kursfee");
+//   const par = await res.json();
 
-  // Pass data to the page via props
-  return { props: { par } };
-}
+//   // Pass data to the page via props
+//   return { props: { par } };
+// }
