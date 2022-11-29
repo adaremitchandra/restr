@@ -1,9 +1,9 @@
 import Hamburger from "hamburger-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import Button from "./Button";
-import { useRouter } from "next/router";
 
 const Navbar = () => {
   const navRef = useRef();
@@ -13,13 +13,11 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const onScroll = () => {
-    const fixedNav = headerRef.current.offsetTop;
-    if (window.pageYOffset > fixedNav) {
+    if (window.pageYOffset > 0) {
       headerRef.current.classList.add("navbar-fixed");
     } else {
       headerRef.current.classList.remove("navbar-fixed");
@@ -33,19 +31,19 @@ const Navbar = () => {
   return (
     //jika positionnya absolte maka sidebar akan kelihatan disebelah kanan melewati layar ketika sidebar ditutup
     //tapi kalau posisition nya fixed sidebarnya ga kelihatan ketika closed
-    <header ref={headerRef} className="bg-red-50 fixed top-0 left-0 w-full flex items-center z-10">
+    <header ref={headerRef} className="fixed top-0 left-0 z-10 flex items-center w-full bg-red-50">
       <div className="container mx-auto">
-        <div className="flex item-center justify-between relative sm:justify-start">
+        <div className="relative flex justify-between item-center sm:justify-start">
           <div className="px-4 py-6 sm:px-0">
-            <Image src="/logo.svg" alt="logo" height={20} width={180} />
+            <Image src="/logo.svg" alt="logo" height={20} width={180} className="w-auto h-auto" />
           </div>
           <div className="flex items-center px-4 sm:px0 sm:w-full ">
-            <div className="block absolute right-0 sm:hidden">
+            <div className="absolute right-0 block sm:hidden">
               <Hamburger onToggle={onHumburgerChange} />
             </div>
             <nav ref={navRef} className="translate-x-full absolute px-4 bg-white right-0 top-full w-[250px] h-screen shadow-lg sm:translate-x-0 sm:flex sm:static sm:h-full sm:w-full sm:bg-transparent sm:shadow-none transition ">
               <div className="block sm:flex sm:items-center sm:justify-between sm:w-full ">
-                <ul className="block sm:flex  sm:items-center">
+                <ul className="block sm:flex sm:items-center">
                   <li className="group">
                     <Link href="/Home" className={`${activeLink("/Home")} text-base group-hover:text-sky-500 font-semibold py-2 flex  sm:mx-4`}>
                       Personal

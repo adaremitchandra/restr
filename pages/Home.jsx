@@ -310,9 +310,12 @@ const Home = () => {
       <Navbar />
       <div className="h-20"></div>
       <hr className="my-6" />
-      <div className="px-5 flex gap-3 bg-red-50">
+      <div className="flex gap-3 px-5 bg-red-50">
         <Button type="outlined" isLoading={true} disabled={true} />
-        <Button disabled={true} isLoading={true} onClick={() => handleSebelum(2131321)} />
+        <Button disabled={true} isLoading={true} onClick={() => console.log(2131321)} />
+        <button disabled={true} onClick={() => console.log("first")}>
+          DSasda
+        </button>
       </div>
       <hr className="my-6" />
       <div className="px-5">
@@ -327,12 +330,13 @@ const Home = () => {
         <Text>Ini adalah text tipe default/p</Text>
       </div>
       <hr className="my-6" />
-      <div className="px-5 max-w-xl">
+      <div className="max-w-xl px-5">
         <CurrencyInput placeholder="Ini merupakan sebuah placeholder" value={sebelum} onValueChange={(res) => handleSebelum(res)} />
         <CurrencyInput label="sesudah" placeholder="Ini merupakan sebuah placeholder" value={sesudah} onValueChange={(res) => handleSesudah(res)} />
         <br />
         <br />
         <Select
+          disabled
           value={selected}
           onChange={setSelected}
           data={data}
@@ -357,7 +361,7 @@ const Home = () => {
       </div>
       <hr className="my-6" />
 
-      <div className="px-10 flex flex-col gap-4 bg-red-50">
+      <div className="flex flex-col gap-4 px-10 bg-red-50">
         <Menu>
           {["Menu petermana", "Ini yang kedua", "terus ada juga 3 asdnkalsndkasndka nskldnaskndals"].map((item, i) => {
             return (
@@ -367,7 +371,7 @@ const Home = () => {
             );
           })}
         </Menu>
-        <div className="flex justify-center gap-10 flex-wrap">
+        <div className="flex flex-wrap justify-center gap-10">
           <Card />
           <Card />
           <Card />
@@ -432,8 +436,8 @@ const Home = () => {
       </div>
       <hr className="my-6" />
       <div className="overflow-clip">
-        <div className=" container mx-auto flex  py-10  ">
-          <div className="w-1/2  my-10 ">
+        <div className="container flex py-10 mx-auto ">
+          <div className="w-1/2 my-10 ">
             <h3 className="text-4xl font-bold text-slate-800 sm:text-5xl md:text-6xl">
               Landing <span className="text-sky-500">Page</span>ku
             </h3>
@@ -441,7 +445,7 @@ const Home = () => {
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id eius ut provident maxime commodi architecto delectus, fugit autem esse veniam, animi facilis et quibusdam, saepe error aperiam officia pariatur distinctio!
             </p>
           </div>
-          <div className="w-1/2 block px-4">
+          <div className="block w-1/2 px-4">
             <div className="w-[1000px] ">
               <img src="https://source.unsplash.com/random/950x360" className="object-cover"></img>
             </div>
@@ -451,24 +455,24 @@ const Home = () => {
 
       <hr className="my-6" />
 
-      <div className="container px-6 max-w-md mx-auto sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full lg:p-0">
+      <div className="container max-w-md px-6 mx-auto sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full lg:p-0">
         <div className="lg:p-12 lg:flex-1">
           <h3 className="text-4xl font-bold text-slate-800 sm:text-5xl md:text-6xl">
             Testing Tail<span className="text-sky-500">wind</span>
           </h3>
-          <img src="https://source.unsplash.com/random/1280x960" className="mt-4 rounded-xl shadow-xl sm:mt-6 sm:h-64 sm:w-full sm:object-cover lg:hidden"></img>
+          <img src="https://source.unsplash.com/random/1280x960" className="mt-4 shadow-xl rounded-xl sm:mt-6 sm:h-64 sm:w-full sm:object-cover lg:hidden"></img>
           <h2 className="mt-6 text-2xl font-semibold text-slate-800 sm:mt-8 sm:text-4xl">Ini adalah coba coba tailwind</h2>
           <p className="mt-2 text-slate-600 sm:mt-4 sm:text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi alias debitis voluptates accusantium tempora consequatur dicta. Vero, eius. Fugiat perferendis illum voluptatibus cumque quisquam necessitatibus corporis unde, nemo
             pariatur.
           </p>
           <div className="mt-4 sm-mt-6">
-            <a href="#" className="inline-block px-5 py-3 bg-red-600 text-white rounded-lg shadow-lg uppercase font-semibold tracking-wider text-sm sm:text-base">
+            <a href="#" className="inline-block px-5 py-3 text-sm font-semibold tracking-wider text-white uppercase bg-red-600 rounded-lg shadow-lg sm:text-base">
               Coba Click disiniaja
             </a>
           </div>
         </div>
-        <div className="hidden lg:flex lg:w-1/2  ">
+        <div className="hidden lg:flex lg:w-1/2 ">
           <img src="https://source.unsplash.com/random/1280x960" className="object-cover rounded-l-full"></img>
         </div>
       </div>
@@ -479,29 +483,29 @@ const Home = () => {
 export default Home;
 
 {
-  /* <div className="container px-6 max-w-md mx-auto sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full lg:p-0">
+  /* <div className="container max-w-md px-6 mx-auto sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full lg:p-0">
         <div className="lg:p-12 lg:flex-1">
           <h3 className="text-4xl font-bold text-slate-800 sm:text-5xl md:text-6xl">
             Testing Tail<span className="text-sky-500">wind</span>
           </h3>
-          <img src="https://source.unsplash.com/random/1280x960" className="mt-4 rounded-xl shadow-xl sm:mt-6 sm:h-64 sm:w-full sm:object-cover lg:hidden"></img>
+          <img src="https://source.unsplash.com/random/1280x960" className="mt-4 shadow-xl rounded-xl sm:mt-6 sm:h-64 sm:w-full sm:object-cover lg:hidden"></img>
           <h2 className="mt-6 text-2xl font-semibold text-slate-800 sm:mt-8 sm:text-4xl">Ini adalah coba coba tailwind</h2>
           <p className="mt-2 text-slate-600 sm:mt-4 sm:text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi alias debitis voluptates accusantium tempora consequatur dicta. Vero, eius. Fugiat perferendis illum voluptatibus cumque quisquam necessitatibus corporis unde, nemo
             pariatur.
           </p>
           <div className="mt-4 sm-mt-6">
-            <a href="#" className="inline-block px-5 py-3 bg-red-600 text-white rounded-lg shadow-lg uppercase font-semibold tracking-wider text-sm sm:text-base">
+            <a href="#" className="inline-block px-5 py-3 text-sm font-semibold tracking-wider text-white uppercase bg-red-600 rounded-lg shadow-lg sm:text-base">
               Coba Click disiniaja
             </a>
           </div>
         </div>
-        <div className="hidden lg:flex lg:w-1/2  ">
+        <div className="hidden lg:flex lg:w-1/2 ">
           <img src="https://source.unsplash.com/random/1280x960" className="object-cover rounded-l-full"></img>
         </div>
       </div>
       <hr className="my-36" />
-      <div className="container bg-red-200 mx-auto">
+      <div className="container mx-auto bg-red-200">
         <div className="flex">
           <div className="lg:p-12 w-full max-w-[650px] bg-blue-500">
             <h3 className="text-4xl font-bold text-slate-800 sm:text-5xl md:text-6xl">
@@ -513,12 +517,12 @@ export default Home;
               pariatur.
             </p>
             <div className="mt-4 sm-mt-6">
-              <a href="#" className="inline-block px-5 py-3 bg-red-600 text-white rounded-lg shadow-lg uppercase font-semibold tracking-wider text-sm sm:text-base">
+              <a href="#" className="inline-block px-5 py-3 text-sm font-semibold tracking-wider text-white uppercase bg-red-600 rounded-lg shadow-lg sm:text-base">
                 Coba Click disiniaja
               </a>
             </div>
           </div>
-          <div className="  bg-red-50">
+          <div className=" bg-red-50">
             <div className=" gap-3 h-ful flex w[500px] bg-black">
               <img src="https://source.unsplash.com/random/1280x960" className="object-cover w-[200px] h-[200px]  m-auto"></img>
               <img src="https://source.unsplash.com/random/1280x960" className="object-cover w-[200px] h-[200px] m-auto"></img>

@@ -1,17 +1,12 @@
-import PropTypes from "prop-types";
 import { Combobox } from "@headlessui/react";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import { useRef } from "react";
 
 const SelectIcon = ({ value, data, optionKey, iconKey, onSearch, onChange, placeholder, label }) => {
-  const [query, setQuery] = useState("");
   const ref = useRef();
 
   let shownData = optionKey ? value[optionKey] : value.value;
-
-  useEffect(() => {
-    onSearch(query);
-  }, [query]);
 
   return (
     <Combobox
@@ -30,11 +25,8 @@ const SelectIcon = ({ value, data, optionKey, iconKey, onSearch, onChange, place
             <Combobox.Input
               placeholder={shownData || placeholder}
               className={`w-full py-3 outline-none ${shownData && !open ? "placeholder:text-black" : "placeholder:text-base"} ${open ? "caret-current" : "caret-transparent"} hover:cursor-pointer`}
-              onFocus={() => {
-                setQuery("");
-              }}
               onChange={(event) => {
-                setQuery(event.target.value);
+                onSearch(event.target.value);
               }}
             />
             <Combobox.Button ref={ref}>
@@ -51,9 +43,9 @@ const SelectIcon = ({ value, data, optionKey, iconKey, onSearch, onChange, place
               data.map((item) => (
                 <Combobox.Option key={item.id} className={({ active, selected }) => `py-3  ${selected ? "bg-sky-500" : active ? "bg-gray-100" : "bg-white"} group`} value={item}>
                   {({ selected }) => (
-                    <div className="mx-4 flex gap-2 items-center">
+                    <div className={`mx-4 flex gap-2 items-center font-medium ${selected ? "text-white" : "text-slate-500"}`}>
                       <Image src={item[iconKey] || item.icon} width={25} height={25} alt="icon" />
-                      <span className={`flex font-medium ${selected ? "text-white" : "text-slate-500"}`}>{item[optionKey] || item.value}</span>
+                      <spans>{item[optionKey] || item.value}</spans>
                     </div>
                   )}
                 </Combobox.Option>

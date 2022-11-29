@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Combobox } from "@headlessui/react";
 import React, { useEffect, useRef, useState } from "react";
 
-const Select = ({ value, data, optionKey, onSearch, onChange, placeholder, label }) => {
+const Select = ({ value, data, optionKey, onSearch, onChange, placeholder, label, disabled }) => {
   const [query, setQuery] = useState("");
   const ref = useRef();
 
@@ -17,6 +17,7 @@ const Select = ({ value, data, optionKey, onSearch, onChange, placeholder, label
       as="div"
       className="relative"
       value={value}
+      disabled={disabled}
       onChange={(option) => {
         onChange(option);
       }}
