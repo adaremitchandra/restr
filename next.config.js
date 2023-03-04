@@ -8,6 +8,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "mobile.api.adaremit.co.id",
       },
+      {
+        protocol: "https",
+        hostname: "adaremit.co.id",
+      },
     ],
   },
 };

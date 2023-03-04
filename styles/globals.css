@@ -9,35 +9,41 @@
 
 @layer base {
   /* h1 {
-    @apply font-bold text-slate-800 text-4xl;
+    @apply text-4xl font-bold text-slate-800;
   }
   h2 {
-    @apply font-semibold text-slate-800 text-3xl;
+    @apply text-3xl font-semibold text-slate-800;
   }
   h3 {
-    @apply font-medium text-slate-800 text-2xl;
+    @apply text-2xl font-medium text-slate-800;
   }
   h4 {
-    @apply font-normal text-slate-800 text-xl;
+    @apply text-xl font-normal text-slate-800;
   }
   h5 {
-    @apply font-normal text-slate-800 text-lg;
+    @apply text-lg font-normal text-slate-800;
   }
   span,
   p {
-    @apply font-normal text-slate-800 text-base;
+    @apply text-base font-normal text-slate-800;
   } */
 }
 
 @layer components {
   .menu-item {
-    @apply mx-4 my-2 text-base text-slate-500 font-medium  flex group-hover:text-sky-500;
+    @apply mx-4 my-2 flex text-base font-medium text-slate-500 group-hover:text-sky-500;
   }
   .btn {
-    @apply flex justify-center items-center font-semibold py-3 px-6 rounded-lg text-white bg-sky-500 active:opacity-50 hover:cursor-pointer;
+    @apply flex items-center justify-center rounded-lg bg-sky-500 px-6 py-3 font-semibold text-white hover:cursor-pointer active:opacity-50;
   }
   .btn-outlined {
-    @apply flex justify-center items-center font-semibold py-3 px-6 rounded-lg text-sky-500 bg-white border-2 border-sky-500 active:opacity-50 hover:cursor-pointer;
+    @apply flex items-center justify-center rounded-lg border-1 border-primary bg-white px-6 py-3 font-semibold text-primary hover:cursor-pointer active:opacity-50;
+  }
+  .btn-outlined-dark {
+    @apply flex items-center justify-center rounded-lg border-1 border-[#BDBDBD] bg-white px-6 py-3 font-semibold text-[#4F4F4F] hover:cursor-pointer active:opacity-50;
+  }
+  .navbar-link {
+    @apply flex py-2 text-base font-semibold group-hover:text-primary lg:mx-4;
   }
 }
 
@@ -58,4 +64,27 @@
   pointer-events: all;
   background: #d9d9d9;
   border-radius: 10px;
+}
+
+.back {
+  background: linear-gradient(197.33deg, #d0eeff 12.43%, #1282c0 112.56%);
+}
+
+.animation-delay {
+  animation-delay: 1000ms;
+}
+/* .test {
+  transform: ;
+} */
+
+.bg1 {
+  background: linear-gradient(196.9deg, #d0eeff 12.14%, #1282c0 156.58%);
+}
+
+.tescss {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }

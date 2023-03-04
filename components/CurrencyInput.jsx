@@ -10,7 +10,7 @@ const CurrencyInput = ({ label, value, onValueChange, placeholder }) => {
         value={value}
         onValueChange={(res) => onValueChange(res.floatValue)}
         thousandSeparator=","
-        className=" py-3 px-3 border-2 border-slate-200 rounded-lg outline-none focus:border-sky-500 w-full"
+        className="w-full px-3 py-3 border-2 rounded-lg outline-none  border-slate-200 focus:border-sky-500"
       />
     </label>
   );

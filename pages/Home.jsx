@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
+import AccGroup from "../components/AccGroup";
+import Accordion from "../components/Accordion";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import CurrencyInput from "../components/CurrencyInput";
@@ -8,6 +10,8 @@ import Navbar from "../components/Navbar";
 import Select from "../components/Select";
 import SelectIcon from "../components/SelectIcon";
 import Text from "../components/Text";
+import AccordionB from "../tes/Accordion";
+import Globe from "../public/g.svg";
 
 const staticData = [
   {
@@ -279,6 +283,7 @@ const Home = () => {
   const [sebelum, setSebelum] = useState();
   const [sesudah, setSesudah] = useState();
   const [selected, setSelected] = useState();
+  const [tes, setTes] = useState(false);
 
   let rate = 10000;
 
@@ -309,8 +314,16 @@ const Home = () => {
     <>
       <Navbar />
       <div className="h-20"></div>
+      <div className="container bg-red-50 p-10">
+        <div className="animation-delay mx-auto h-20 w-20 animate-wiggle bg-green-800 delay-200"></div>
+      </div>
+
+      <div className="group bg-green-100 transition-all">
+        tes
+        <div className="h-0 overflow-hidden transition-all delay-150 duration-300 group-hover:h-10  ">HEllo</div>
+      </div>
       <hr className="my-6" />
-      <div className="flex gap-3 px-5 bg-red-50">
+      <div className="flex gap-3 bg-red-50 px-5">
         <Button type="outlined" isLoading={true} disabled={true} />
         <Button disabled={true} isLoading={true} onClick={() => console.log(2131321)} />
         <button disabled={true} onClick={() => console.log("first")}>
@@ -318,6 +331,21 @@ const Home = () => {
         </button>
       </div>
       <hr className="my-6" />
+      <Globe className="animate-spin-slow" />
+      <div className="bg-sky-100">
+        <div className="container p-4  py-24">
+          {/* <div className="overflow-hidden rounded-[10px] bg-white">
+            <Accordion title="How do I send money overseas using Adaremit? " content="You can send money overseas through the adaremit website, adaremit mobile app and adaremit whatsapp (+62 12312 231312)" />
+            <Accordion title="To which countries can you send money using Adaremit?" content="You can send money overseas through the adaremit website, adaremit mobile app and adaremit whatsapp (+62 12312 231312)" />
+            <Accordion title="How do I pay for my transfer?" content="You can send money overseas through the adaremit website, adaremit mobile app and adaremit whatsapp (+62 12312 231312)" />
+            <Accordion title="Why is the order pending and delayed? " content="You can send money overseas through the adaremit website, adaremit mobile app and adaremit whatsapp (+62 12312 231312)" />
+            <Accordion title="Is Adaremit safe and trustworthy?" content="You can send money overseas through the adaremit website, adaremit mobile app and adaremit whatsapp (+62 12312 231312)" />
+          </div> */}
+          <AccGroup />
+
+          {/* <AccordionB /> */}
+        </div>
+      </div>
       <div className="px-5">
         <Text type="title">Ini adalah Title</Text>
         <Text type="h1">Ini adalah h1</Text>
@@ -361,7 +389,7 @@ const Home = () => {
       </div>
       <hr className="my-6" />
 
-      <div className="flex flex-col gap-4 px-10 bg-red-50">
+      <div className="flex flex-col gap-4 bg-red-50 px-10">
         <Menu>
           {["Menu petermana", "Ini yang kedua", "terus ada juga 3 asdnkalsndkasndka nskldnaskndals"].map((item, i) => {
             return (
@@ -435,9 +463,9 @@ const Home = () => {
         </p>
       </div>
       <hr className="my-6" />
-      <div className="overflow-clip">
-        <div className="container flex py-10 mx-auto ">
-          <div className="w-1/2 my-10 ">
+      <div className="overflow-x-clip">
+        <div className="container mx-auto flex py-10 ">
+          <div className="my-10 w-1/2 ">
             <h3 className="text-4xl font-bold text-slate-800 sm:text-5xl md:text-6xl">
               Landing <span className="text-sky-500">Page</span>ku
             </h3>
@@ -445,7 +473,7 @@ const Home = () => {
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id eius ut provident maxime commodi architecto delectus, fugit autem esse veniam, animi facilis et quibusdam, saepe error aperiam officia pariatur distinctio!
             </p>
           </div>
-          <div className="block w-1/2 px-4">
+          <div className="w-1/2 px-4">
             <div className="w-[1000px] ">
               <img src="https://source.unsplash.com/random/950x360" className="object-cover"></img>
             </div>
@@ -455,25 +483,25 @@ const Home = () => {
 
       <hr className="my-6" />
 
-      <div className="container max-w-md px-6 mx-auto sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full lg:p-0">
-        <div className="lg:p-12 lg:flex-1">
+      <div className="container mx-auto max-w-md px-6 sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full lg:p-0">
+        <div className="lg:flex-1 lg:p-12">
           <h3 className="text-4xl font-bold text-slate-800 sm:text-5xl md:text-6xl">
             Testing Tail<span className="text-sky-500">wind</span>
           </h3>
-          <img src="https://source.unsplash.com/random/1280x960" className="mt-4 shadow-xl rounded-xl sm:mt-6 sm:h-64 sm:w-full sm:object-cover lg:hidden"></img>
+          <img src="https://source.unsplash.com/random/1280x960" className="mt-4 rounded-xl shadow-xl sm:mt-6 sm:h-64 sm:w-full sm:object-cover lg:hidden"></img>
           <h2 className="mt-6 text-2xl font-semibold text-slate-800 sm:mt-8 sm:text-4xl">Ini adalah coba coba tailwind</h2>
           <p className="mt-2 text-slate-600 sm:mt-4 sm:text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi alias debitis voluptates accusantium tempora consequatur dicta. Vero, eius. Fugiat perferendis illum voluptatibus cumque quisquam necessitatibus corporis unde, nemo
             pariatur.
           </p>
-          <div className="mt-4 sm-mt-6">
-            <a href="#" className="inline-block px-5 py-3 text-sm font-semibold tracking-wider text-white uppercase bg-red-600 rounded-lg shadow-lg sm:text-base">
+          <div className="sm-mt-6 mt-4">
+            <a href="#" className="inline-block rounded-lg bg-red-600 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg sm:text-base">
               Coba Click disiniaja
             </a>
           </div>
         </div>
         <div className="hidden lg:flex lg:w-1/2 ">
-          <img src="https://source.unsplash.com/random/1280x960" className="object-cover rounded-l-full"></img>
+          <img src="https://source.unsplash.com/random/1280x960" className="rounded-l-full object-cover"></img>
         </div>
       </div>
     </>
@@ -481,6 +509,24 @@ const Home = () => {
 };
 
 export default Home;
+
+// export async function getServerSideProps(context) {
+//   const { token } = context.req.cookies;
+
+//   console.log("first");
+//   if (!token) {
+//     return {
+//       redirect: {
+//         destination: "/login",
+//         permanent: false,
+//       },
+//     };
+//   }
+
+//   return {
+//     props: {},
+//   };
+// }
 
 {
   /* <div className="container max-w-md px-6 mx-auto sm:max-w-xl md:max-w-5xl lg:flex lg:max-w-full lg:p-0">
