@@ -27,16 +27,16 @@ const login = () => {
   };
 
   return (
-    <div className="container flex flex-col items-center justify-center h-screen m-auto bg-slate-50">
+    <div className="container m-auto flex h-screen flex-col items-center justify-center bg-slate-50">
       login to your account
-      <div className="w-1/2 h-1/4">
+      <div className="h-1/4 w-1/2">
         <label className="">
           email :
-          <input name="email" value={form.email} onChange={onChange} className="w-full px-3 py-3 border-2 rounded-lg outline-none border-slate-200 focus:border-sky-500" />
+          <input name="email" value={form.email} onChange={onChange} className="w-full rounded-lg border-2 border-slate-200 px-3 py-3 outline-none focus:border-sky-500" />
         </label>
         <label className="">
           password :
-          <input name="password" value={form.password} onChange={onChange} className="w-full px-3 py-3 border-2 rounded-lg outline-none border-slate-200 focus:border-sky-500" />
+          <input name="password" value={form.password} onChange={onChange} className="w-full rounded-lg border-2 border-slate-200 px-3 py-3 outline-none focus:border-sky-500" />
         </label>
       </div>
       <Button onClick={submit}>Login</Button>

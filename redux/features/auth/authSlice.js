@@ -12,7 +12,6 @@ export const authLogin = createAsyncThunk("auth/login", async (data, { rejectWit
   try {
     const res = await axios.post("https://mobile.api.adaremit.co.id/v1/login", data);
     Cookies.set("token", res.data.access_token);
-    Cookies.set("token", res.data.access_token, { domain: "sub.lvh.meh:3000" });
   } catch (err) {
     return rejectWithValue(err.response.data);
   }
